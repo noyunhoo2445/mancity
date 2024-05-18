@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      li {
+        list-style-type: none;
+      }
+      header {
+        height: 166px;
+      }
+      .box {
+        width: 1100px;
+        margin: 0 auto;
+      }
+
+      #logo {
+        float: left;
+        margin: 80px 0 0 60px;
+      }
+      #menu {
+        float: right;
+        text-align: right;
+        margin-right: 20px;
+      }
+      #menu li {
+        display: inline-block;
+      }
+      #top_menu li {
+        margin: 30px 0 0 10px;
+      }
+      #main_menu li {
+        margin: 50px 0 0 80px;
+        font-family: "맑은고딕";
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      #main_image {
+        height: 312px;
+        background-image: url("./img/main_bg.png");
+        background-repeat: no-repeat;
+        background-position: top center;
+        text-align: center;
+        padding: 230px 0 0 750px;
+      }
+
+      aside {
+        width: 220px;
+        float: left;
+        margin: 70px 0;
+      }
+      aside .title1 {
+        padding: 12px;
+        background-color: #0ca9a3;
+        color: white;
+        font-size: 18px;
+      }
+      aside .comment {
+        padding: 20px 10px;
+        line-height: 150%;
+      }
+      aside .search input {
+        width: 160px;
+        height: 32px;
+        border: solid 1px black;
+        vertical-align: top;
+      }
+      aside .search button {
+        margin-left: 5px;
+        padding: 6px 10px;
+        border: solid 1px black;
+      }
+
+      aside .title2 {
+        margin-top: 20px;
+        padding: 12px;
+        border-top: solid 2px black;
+        border-bottom: solid 1px #cccccc;
+        font-size: 18px;
+      }
+      aside .list {
+        margin: 20px 0;
+      }
+      aside .list li {
+        margin: 10px 12px;
+      }
+
+      aside .ripple {
+        border: solid 1px #0ca9a3;
+        padding: 12px;
+      }
+      aside .ripple h2 {
+        font-size: 18px;
+        margin: 10px 0 15px 0;
+      }
+      aside .ripple li {
+        margin-top: 6px;
+      }
+
+      #main {
+        width: 840px;
+        float: right;
+        margin: 70px 0;
+      }
+
+      #main1 {
+        width: 405px;
+        float: left;
+      }
+      #main1 .title1 {
+        padding-bottom: 8px;
+        border-bottom: solid 1px black;
+      }
+      #main1 .latest {
+        margin-top: 30px;
+      }
+      #main1 .items {
+        position: relative;
+        height: 34px;
+      }
+      #main1 .items .subject {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #main1 .items .date {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      #main1 .title2 {
+        margin-top: 30px;
+        padding-bottom: 8px;
+        border-bottom: solid 1px black;
+      }
+      #main2 {
+        width: 400px;
+        float: right;
+      }
+      #main2 .title1 {
+        padding-bottom: 8px;
+        border-bottom: solid 1px black;
+      }
+      #main2 .item1 {
+        clear: both;
+        width: 189px;
+        float: left;
+        margin-top: 30px;
+      }
+      #main2 .item2 {
+        width: 189px;
+        float: right;
+        margin-top: 30px;
+      }
+      #main2 .subject {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      #main2 .date {
+        margin-top: 5px;
+      }
+
+      footer {
+        clear: both;
+        height: 260px;
+        background-color: #05354e;
+        color: white;
+      }
+      #bottom_menu ul {
+        padding: 20px 0 0 100px;
+        font-weight: bold;
+      }
+      #bottom_menu li {
+        display: inline;
+        margin-right: 30px;
+      }
+      footer .items {
+        float: left;
+        margin: 40px 0 0 100px;
+      }
+      footer h3 {
+        color: #0ca9a3;
+      }
+      footer .items ul {
+        margin-top: 15px;
+      }
+      footer .items li {
+        margin-top: 5px;
+      }
+      footer .phone {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="main-image">
+      <a href="#"><img src="" /></a>
+    </section>
+    <header>
+      <div class="box">
+        <div id="logo">
+          <img src="./시티 티비로고.html.png" />
+        </div>
+        <nav id="menu">
+          <ul id="top_menu">
+            <li>노윤후(nyh)님</li>
+            <li>/</li>
+            <li>로그아웃</li>
+            <li>/</li>
+            <li>정보수정</li>
+          </ul>
+          <ul id="main_menu">
+            <li>Home</li>
+            <li>출석부</li>
+            <li>작품 갤러리</li>
+            <li>게시판</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="box">
+      <aside>
+        <h2 class="title1">the 시티</h2>
+        <p class="comment">
+          안녕하세요.맨시티 경기 정보를 공유하고 소통하는 공간입니다.
+        </p>
+        <div class="search"><input type="text" /><button>검색</button></div>
+        <h2 class="title2">맨시티</h2>
+        <ul clas="list">
+          <li>맨시티 1</li>
+          <li>맨시티 2</li>
+          <li>맨시티 3</li>
+        </ul>
+        <div class="ripple">
+          <h2>최근 댓글</h2>
+          <ul>
+            <li>안녕하세요.</li>
+            <li>안녕하세요.</li>
+            <li>안녕하세요.</li>
+          </ul>
+        </div>
+      </aside>
+      <section id="main">메인섹션</section>
+    </div>
+    <div class="box">
+      <aside>사이드바</aside>
+      <section id="main">
+        <div id="" main1>
+          <h3 class="title1">알림</h3>
+          <ul class="latest">
+            <li class="items">
+              <div class="subject">맨시티4</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">맨시티4</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">맨시티4</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">맨시티4</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">맨시티4</div>
+              <div class="date">05.04</div>
+            </li>
+          </ul>
+          <h3 class="title2">게시판</h3>
+          <ul class="latest">
+            <li class="items">
+              <div class="subject">안녕하세요. 반갑습니다.</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">안녕하세요. 반갑습니다.</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">안녕하세요. 반갑습니다.</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">안녕하세요. 반갑습니다.</div>
+              <div class="date">05.04</div>
+            </li>
+            <li class="items">
+              <div class="subject">안녕하세요. 반갑습니다.</div>
+              <div class="date">05.04</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <div id="main2">
+      <h3 class="title1">맨체스터 시티</h3>
+      <ul class="item1">
+        <li><img src="./챔스,html.png" /></li>
+        <li class="subject">챔피언스리그</li>
+        <li class="date">2023</li>
+      </ul>
+      <ul class="item2">
+        <li><img src="./리그.html.png" /></li>
+        <li class="subject">프리미어리그</li>
+        <li class="date">2022-2023</li>
+      </ul>
+      <ul class="item1">
+        <li><img src="./fa컵.html.png" /></li>
+        <li class="subject">잉글랜드 Fa컵</li>
+        <li class="date">2023</li>
+      </ul>
+      <ul class="item2">
+        <li><img src="./클럽월드컵.html.png" /></li>
+        <li class="subject">클럽월드컵</li>
+        <li class="date">2023</li>
+      </ul>
+    </div>
+    <footer>
+      <div class="box">
+        <nav id="bottom_menu">
+          <ul>
+            <li>맨시티</li>
+            <li>맨시티</li>
+            <li>맨시티</li>
+            <li>맨시티</li>
+          </ul>
+        </nav>
+        <div class="items">
+          <h3>문의 전화</h3>
+          <ul>
+            <li class="phone">123-1234</li>
+            <li>10:00-18:00</li>
+          </ul>
+        </div>
+        <div class="items">
+          <h3>맨시티</h3>
+          <ul>
+            <li>주소</li>
+            <li>전화:031-203-2023</li>
+            <li>이메일: noyunhoo2445@gmail.com</li>
+          </ul>
+        </div>
+        <div class="items">
+          <h3>입금 정보</h3>
+          <ul>
+            <li>농협: 1221444566581</li>
+            <li>맨시티</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <h1>맨체스터 시티 시즌 일정 및 결과</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>날짜</th>
+          <th>대진</th>
+          <th>결과</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-05-20</td>
+          <td>맨체스터 시티 vs 리버풀</td>
+          <td>3 : 1</td>
+        </tr>
+        <tr>
+          <td>2024-05-25</td>
+          <td>맨체스터 시티 vs 맨체스터 유나이티드</td>
+          <td>2 : 0</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
