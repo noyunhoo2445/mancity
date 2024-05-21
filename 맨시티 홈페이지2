@@ -1,0 +1,135 @@
+<title>Manchester City Official Website</title>
+
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6caddf;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #003d71;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #6caddf;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .news-item {
+            margin-bottom: 10px;
+        }
+        #main2 {
+	width: 700px;
+	float: right;
+}
+#main2 .title1 {
+	padding-bottom: 30px;
+	border-bottom: solid 1px black;
+}
+#main2 .item1 {
+	clear: both;
+	width: 300px;
+	float: left;
+	margin-top: 30px;
+}
+#main2 .item2 {
+	width: 300px;
+	float: right;
+	margin-top: 30px;
+}
+#main2 .subject {
+	margin-top:10px;
+	font-weight: bold;
+	font-size: 16px;
+}
+#main2 .date {
+	margin-top:5px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>맨체스터 시티 축구 클럽</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">홈</a></li>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">경기일정</a></li>
+            <li><a href="#">선수</a></li>
+            <li><a href="#">티켓</a></li>
+            <li><a href="#">상점</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div id="main2">
+            <h3 class="title1">우승</h3>
+            <ul class="item1">
+                <li><img src="./[크기변환]챔스.html.png"></li>
+                <li class="subject">챔피언스리그</li>
+                <li class="date">2023</li>
+            </ul>
+            <ul class="item2">
+                <li><img src="./[크기변환]2024리그.html.png"></li>
+                <li class="subject">프리미어리그</li>
+                <li class="date">2023-2024</li>
+            </ul>
+            <ul class="item1">
+                <li><img src="./[크기변환]fa컵.html.png"></li>
+                <li class="subject">잉글랜드 Fa컵</li>
+                <li class="date">2023</li>
+            </ul>
+            <ul class="item2">
+                <li><img src="./[크기변환]클럽월드컵.html.png"></li>
+                <li class="subject">챔피언스리그</li>
+                <li class="date">2023</li>
+            </ul>
+        </div>
+        <h2>맨체스터 시티 공식 홈페이지에 오신 것을 환영합니다</h2>
+        <p>이곳은 맨체스터 시티의 공식 웹사이트의 간단한 버전입니다. 최신 뉴스, 경기 일정, 선수 정보를 확인하고, 티켓을 구매하거나 클럽 상품을 쇼핑해보세요.</p>
+        
+        <h3>최신 뉴스</h3>
+        <div class="news-item">
+            <h4>맨체스터 시티, 프리미어 리그 우승</h4>
+            <p>맨체스터 시티가 클럽 역사상 다섯 번째로 프리미어 리그 우승을 차지했습니다.</p>
+            <a href="#">자세히 보기</a>
+        </div>
+        <div class="news-item">
+            <h4>신규 영입: 포워드 존 도가 맨체스터 시티 합류</h4>
+            <p>맨체스터 시티가 XYZ 클럽에서 포워드 존 도 선수를 영입했습니다.</p>
+            <a href="#">자세히 보기</a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 맨체스터 시티 축구 클럽. 판권 소유. 모든 권리 보유.</p>
+    </footer>
+</body>
+</html>
