@@ -1,0 +1,95 @@
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #colorDisplay {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .colorButton {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        #result {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>색상 맞추기 게임</h1>
+    <div id="colorDisplay"></div>
+    <div id="colorButtons"></div>
+    <p id="result"></p>
+
+    <script>
+        const numColors = 3; // 게임에 사용할 색상 수
+        let colors = generateRandomColors(numColors); // 무작위 색상 생성
+        let pickedColor = pickColor(); // 정답 색상 선택
+        const colorDisplay = document.getElementById("colorDisplay");
+        const colorButtonsDiv = document.getElementById("colorButtons");
+        const resultDisplay = document.getElementById("result");
+
+        // RGB 색상 코드 생성
+        function generateRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // 게임에 사용될 무작위 색상 생성
+        function generateRandomColors(numColors) {
+            const colorsArray = [];
+            for (let i = 0; i < numColors; i++) {
+                colorsArray.push(generateRandomColor());
+            }
+            return colorsArray;
+        }
+
+        // 게임에 사용될 정답 색상 선택
+        function pickColor() {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            return colors[randomIndex];
+        }
+
+        // 색상 버튼 생성
+        function createColorButtons() {
+            for (let i = 0; i < colors.length; i++) {
+                const colorButton = document.createElement("div");
+                colorButton.classList.add("colorButton");
+                colorButton.style.backgroundColor = colors[i];
+                colorButton.addEventListener("click", function() {
+                    if (this.style.backgroundColor === pickedColor) {
+                        resultDisplay.textContent = "정답입니다!";
+                        resultDisplay.style.color = "green";
+                        colorButtonsDiv.removeEventListener("click", handleButtonClick);
+                    } else {
+                        this.style.backgroundColor = "#232323";
+                        resultDisplay.textContent = "틀렸습니다. 다시 시도하세요.";
+                        resultDisplay.style.color = "red";
+                    }
+                });
+                colorButtonsDiv.appendChild(colorButton);
+            }
+        }
+
+        // 게임 시작 함수
+        function startGame() {
+            colors = generateRandomColors(numColors);
+            pickedColor = pickColor();
+            colorDisplay.textContent = pickedColor;
+            resultDisplay.textContent = "";
+            resultDisplay.style.color = "black";
+            createColorButtons();
+        }
+
+        // 게임 초기화
+        startGame();
+    </script>
