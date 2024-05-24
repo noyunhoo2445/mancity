@@ -1,0 +1,93 @@
+  <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background-color: #70c5ce;
+        }
+    </style>
+
+
+ <canvas id="gameCanvas" width="800" height="500"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const birdWidth = 40;
+        const birdHeight = 30;
+        let birdX = 100;
+        let birdY = canvas.height / 2;
+        let gravity = 0.5;
+        let jump = -10;
+        let score = 0;
+        let pipe = [];
+
+        pipe[0] = {
+            x: canvas.width,
+            y: 0
+        };
+
+        function drawBird() {
+            ctx.fillStyle = "#ff0000";
+            ctx.fillRect(birdX, birdY, birdWidth, birdHeight);
+        }
+
+        function drawPipe() {
+            for (let i = 0; i < pipe.length; i++) {
+                ctx.fillStyle = "#008000";
+                ctx.fillRect(pipe[i].x, pipe[i].y, 50, 200);
+                ctx.fillRect(pipe[i].x, pipe[i].y + 300, 50, canvas.height - pipe[i].y - 300);
+                pipe[i].x -= 2;
+
+                if (pipe[i].x === 50) {
+                    pipe.push({
+                        x: canvas.width,
+                        y: Math.floor(Math.random() * 200) - 200
+                    });
+                }
+
+                if (birdX + birdWidth >= pipe[i].x && birdX <= pipe[i].x + 50 &&
+                    (birdY <= pipe[i].y + 200 || birdY + birdHeight >= pipe[i].y + 300) ||
+                    birdY + birdHeight >= canvas.height) {
+                    gameOver();
+                }
+
+                if (pipe[i].x === birdX) {
+                    score++;
+                }
+            }
+        }
+
+        function drawScore() {
+            ctx.fillStyle = "#000";
+            ctx.font = "20px Verdana";
+            ctx.fillText("Score: " + score, 10, 30);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBird();
+            drawPipe();
+            drawScore();
+
+            birdY += gravity;
+
+            requestAnimationFrame(draw);
+        }
+
+        function jumpBird() {
+            birdY += jump;
+        }
+
+        function gameOver() {
+            alert("Game Over! Your score: " + score);
+            location.reload();
+        }
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === " ") {
+                jumpBird();
+            }
+        });
+
+        draw();
+    </script>
