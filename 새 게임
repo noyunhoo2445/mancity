@@ -16,8 +16,8 @@
         const birdHeight = 30;
         let birdX = 100;
         let birdY = canvas.height / 2;
-        let gravity = 0.5;
-        let jump = -10;
+        let gravity = 0.9;
+        let jump = -35;
         let score = 0;
         let pipe = [];
 
@@ -27,8 +27,23 @@
         };
 
         function drawBird() {
+            ctx.fillStyle = "#ffff00";
+            ctx.beginPath();
+            ctx.arc(birdX + birdWidth / 2, birdY + birdHeight / 2, birdHeight / 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "#000000";
+            ctx.beginPath();
+            ctx.arc(birdX + birdWidth / 2 + 8, birdY + birdHeight / 2 - 5, 3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(birdX + birdWidth / 2 + 12, birdY + birdHeight / 2 - 5, 3, 0, Math.PI * 2);
+            ctx.fill();
             ctx.fillStyle = "#ff0000";
-            ctx.fillRect(birdX, birdY, birdWidth, birdHeight);
+            ctx.beginPath();
+            ctx.moveTo(birdX + birdWidth / 2 + 10, birdY + birdHeight / 2 + 5);
+            ctx.lineTo(birdX + birdWidth / 2 + 20, birdY + birdHeight / 2 + 10);
+            ctx.lineTo(birdX + birdWidth / 2 + 10, birdY + birdHeight / 2 + 15);
+            ctx.fill();
         }
 
         function drawPipe() {
@@ -36,7 +51,7 @@
                 ctx.fillStyle = "#008000";
                 ctx.fillRect(pipe[i].x, pipe[i].y, 50, 200);
                 ctx.fillRect(pipe[i].x, pipe[i].y + 300, 50, canvas.height - pipe[i].y - 300);
-                pipe[i].x -= 2;
+                pipe[i].x -= 10; 
 
                 if (pipe[i].x === 50) {
                     pipe.push({
@@ -56,7 +71,6 @@
                 }
             }
         }
-
         function drawScore() {
             ctx.fillStyle = "#000";
             ctx.font = "20px Verdana";
@@ -79,7 +93,7 @@
         }
 
         function gameOver() {
-            alert("Game Over! Your score: " + score);
+            alert("실패~~~~" + score)
             location.reload();
         }
 
@@ -90,4 +104,3 @@
         });
 
         draw();
-    </script>
