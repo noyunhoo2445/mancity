@@ -1,0 +1,157 @@
+ <style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            text-align: center;
+        }
+        form label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 200px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+   <div class="container">
+        <h2>학생 성적 관리 시스템</h2>
+        <form id="gradeForm">
+            <label for="name">이름:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="id">학번:</label>
+            <input type="number" id="id" name="id" required>
+            <label for="marks">점수:</label>
+            <input type="number" id="marks" name="marks" required>
+            <label for="subject">과목:</label>
+            <select id="subject" name="subject">
+                <option value="math">수학</option>
+                <option value="science">과학</option>
+                <option value="english">영어</option>
+                <option value="history">역사</option>
+                <!-- 여기에 필요한 과목을 추가하세요 -->
+            </select>
+            <button type="button" onclick="addStudent()">학생 추가</button>
+        </form>
+        <h3>전국 고등학교 검색</h3>
+        <input type="text" id="searchInput" onkeyup="searchSchool()" placeholder="고등학교 이름을 입력하세요...">
+        <table id="gradeTable">
+            <tr>
+                <th>이름</th>
+                <th>학번</th>
+                <th>점수</th>
+                <th>성적</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function addStudent() {
+            var name = document.getElementById("name").value;
+            var id = document.getElementById("id").value;
+            var marks = document.getElementById("marks").value;
+            var subject = document.getElementById("subject").value;
+
+            // 성적 부여
+            var grade;
+            if (marks >= 90) {
+                grade = 'A';
+            } else if (marks >= 80) {
+                grade = 'B';
+            } else if (marks >= 70) {
+                grade = 'C';
+            } else if (marks >= 60) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+
+            // 테이블에 추가
+            var table = document.getElementById("gradeTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            cell1.innerHTML = name;
+            cell2.innerHTML = id;
+            cell3.innerHTML = marks;
+            cell4.innerHTML = grade;
+
+            // 입력 필드 초기화
+            document.getElementById("name").value = "";
+            document.getElementById("id").value = "";
+            document.getElementById("marks").value = "";
+        }
+
+        function searchSchool() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("gradeTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
